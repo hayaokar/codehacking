@@ -24,3 +24,7 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::resource('admin/users',AdminUserController::class);
+
+Route::get('/admin',function(){
+    return view('admin.index');
+});
