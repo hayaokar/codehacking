@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPostsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUserController;
 /*
@@ -24,6 +25,8 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::resource('admin/users',AdminUserController::class);
+
+Route::resource('admin/posts',AdminPostsController::class);
 
 Route::get('/admin',function(){
     return view('admin.index');

@@ -8,6 +8,7 @@ use App\Models\Photo;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use MongoDB\Driver\Session;
 
 class AdminUserController extends Controller
 {
@@ -136,6 +137,14 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user=User::findorfail($id);
+
+//        Session::flash('deleted_user','the user has been deleted');
+        unlink(public_path() . $user->photo->file);
+
+        $user->delete();
+
+
+        return redirect('admin/users');
     }
 }

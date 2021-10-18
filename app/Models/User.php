@@ -33,6 +33,10 @@ class User extends Authenticatable
     public function photo(){
         return $this->belongsTo('App\Models\Photo');
     }
+
+    public function posts(){
+        return $this->hasMany('App\Models\Post');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
